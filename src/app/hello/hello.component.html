@@ -1,0 +1,113 @@
+<p>{{ contact.age }}</p>
+<p>{{ contact.name }}</p>
+
+<!-- sử dụng nhiều ngIf để biểu diễn các if -->
+<p *ngIf="contact.age >= 18">Lon hon 18</p>
+
+<p *ngIf="contact.age < 18">Nho hon 18</p>
+
+<!-- sử dụng ng-template để lồng else -->
+<p *ngIf="contact.age >= 18; else under18">Lon hon 18</p>
+
+<ng-template #under18>
+  <p>Nho hon 18</p>
+</ng-template>
+
+<!-- hidden -->
+<p [hidden]="contact.name.length >= 5">{{ contact.name }}</p>
+
+<input type="text" name="" [(ngModel)]="contact.name" id="" />
+
+<button (click)="click($event)"></button>
+
+<button (click)="contact.age = contact.age + 1">+</button>
+<br>
+<br>
+<button (click)="contact.age = contact.age - 1">-</button>
+
+<!-- *ngFor -->
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.name }} - {{ user.id }} - {{ user.phone }}
+  </li>
+</ul>
+<ng-container *ngIf="users.length > 11">
+  <ul>
+    <li
+      *ngFor="
+        let u of users;
+        index as idx;
+        odd as isOdd;
+        count as total;
+        even as isEven;
+        first as isFirst;
+        last as isLast
+      "
+    >
+      <span>{{ u.name }} - {{ u.id }} - {{ u.phone }} </span>
+      <br />
+      <br />
+      <span> at index {{ idx }} of {{ total }}</span>
+      <br />
+      <br />
+      <span *ngIf="isEven"> i am is even </span>
+      <br *ngIf="isEven" />
+      <br *ngIf="isEven" />
+      <span *ngIf="isOdd">i am is odd </span>
+      <br *ngIf="isOdd" />
+      <br *ngIf="isOdd" />
+      <span *ngIf="isLast"> i am last index</span>
+      <br *ngIf="isLast" />
+      <br *ngIf="isLast" />
+      <span *ngIf="isFirst"> i am first index</span>
+    </li>
+  </ul>
+</ng-container>
+
+<ng-container *ngIf="tags.length > 3; else noItem">
+  <button
+    *ngFor="
+      let tag of tags;
+      last as isLast;
+      first as isFirst;
+      count as total;
+      odd as isOdd;
+      even as isEven;
+      index as idx
+    "
+    [class.hello]="tag"
+  >
+    {{ tag }}
+  </button>
+</ng-container>
+
+<ng-template #noItem>
+  <span>vui lòng kiểm tra lại mảng</span>
+</ng-template>
+<br>
+<br>
+<span>{{ Danger }} is Danger</span>
+<br>
+<span>{{ Warning }} is Warning</span>
+
+<br>
+<br>
+
+<!-- <div class="box" [class.is__Danger]="Danger" [class.is__Warning]="Warning"></div> -->
+<div
+  class="box"
+  [class.is__Warning]= "Warning"
+  [class.is__Danger]= "Danger"
+></div>
+<br>
+<br>
+<button (click)="Danger = !Danger">Click to change state Danger</button>
+<br>
+<button (click)="Warning = !Warning">Click to change state warning</button>
+<br>
+<br>
+
+<div class="progress-container" [style.backgroundColor]="background" [style]="{height: '20px'}" >
+  <div class="progress" [style.backgroundColor]="colorBar" [style]="{height: '100%', width: progress + '%'}"></div>
+</div>
+
