@@ -1,0 +1,7 @@
+<div style="display: flex; flex-direction: column;">
+    <div class="box" [class.checked]="checked"></div>
+    <!-- <button (click)="Toggle()">Click here to change State</button> -->
+    <br>    
+    <p>Value input here: {{value}}</p>
+    <input type="text" style="max-width: 100px;" [(ngModel)]="value">
+</div>

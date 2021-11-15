@@ -1,0 +1,49 @@
+<!-- <div
+  *ngFor="
+    let user of userList;
+    index as idx;
+    count as total;
+    even as isEven;
+    odd as idOdd;
+    first as isFirst;
+    last as isLast
+  "
+>
+  {{ user.name }}
+  <p>
+    <button style="margin-left: 1rem" (click)="select.emit(user)">
+      Click to select
+    </button>
+    <button style="margin-left: 1rem" (click)="remove.emit(idx)">
+      Click to remove
+    </button>
+  </p>
+</div> -->
+
+<br />
+
+<!-- 
+-	Content projection giúp chúng ta có thể truyền nội dung từ “view” cha xuống “view” con.
+-	Nội dung truyền xuống được code trong body của thẻ selector.
+-	Ở view con, để có thể render đúng vị trí, chúng ta dùng select trong thẻ ng-content 
+và trỏ tới thẻ cần render bằng nội dung như sử dụng querySelector
+-	Với content projection, chúng ta có thể truyền xuống một "component"
+-	ngProjectAs: trong trường hợp không chúng ta sử dung các thẻ ng-...như "ng-container,...." để tạo nội dung, trên DOM sẽ không
+render ra các thẻ ng-.... đấy, và để vẫn có thể trỏ tới các thẻ đấy, chúng ta dùng ngProjectAs để gán 
+cho thẻ ng-.... mội tên gọi, từ đó có thể dùng select để trỏ tới thẻ ng-.... đó
+ -->
+
+<!-- 
+-	Ng-template cho phép toàn quyền kiểm soát cách thức và thời điểm nội dung được hiển thị.
+-	Sử dụng ng-template độc lập để có thể sử dụng nội dung ở nhiều nơi giống nhau. 
+-	Ở nơi cần render, sử dụng <ng-container [ngTemplateOutlet]="tên ng-template"></ng-container>
+- [ngTemplateOutletContext] giúp binding nội dung từ component con ra component cha
+-->
+<!-- <ul>
+  <li *ngFor="let i of [1, 2, 3, 4, 5, 6, 7]">
+    <ng-container
+      [ngTemplateOutlet]="linkTemplate"
+      [ngTemplateOutletContext]="{ number: i }"
+    ></ng-container>
+  </li>
+</ul> -->

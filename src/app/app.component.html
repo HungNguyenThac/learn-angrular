@@ -1,7 +1,38 @@
-<div style="display: flex; justify-content: center; align-items: center;">
-<app-hello ></app-hello>
+<!-- <div style="display: flex; justify-content: center; align-items: center">
+  <app-hello
+    [flexDirection]="'column'"
+    [progress]="currentProgress"
+    [colorBar]="currentColor"
+    [background]="'blue'"
+  ></app-hello>
+  <button (click)="currentProgress = currentProgress + 1">
+    Click here to up Progress
+  </button>
+  <br />
+  sử dụng cú pháp #..... để khai báo một instance của component
+  <button #btnElment>Click</button>
+  <author-list></author-list>
 
-<app-hello [progress]="currentProgress" [colorBar]="currentColor" [background]="'blue'"></app-hello>
+  <nav-comp [navs]="navs"></nav-comp>
+  <br />
+  <checked
+    style="margin-left: 3rem"
+    #checkedComp
+    [(checked)]="isChecked"
+  ></checked>
+  <button (click)="checkedComp.checked = true">True</button>
+  <button (click)="checkedComp.checked = false">False</button>
+</div> -->
+<ng-template #linkTemplate let-item="number">
+  <p style="margin-left: 20px">{{ item }}</p>
+</ng-template>
 
-<button (click)="currentProgress = currentProgress + 1">Click here to up Progress</button>
-</div>
+<author-detail [linkTemplate]="linkTemplate"></author-detail>
+
+<app-tab-group [(activeIndex)]="currentIndex">
+  <app-tab-panel title="first">First tab content</app-tab-panel>
+  <app-tab-panel title="second">second tab content</app-tab-panel>
+  <app-tab-panel title="third">third tab content</app-tab-panel>
+  <app-tab-panel title="fourth">fourth tab content</app-tab-panel>
+  <app-tab-panel title="five">fiveth tab content</app-tab-panel>
+</app-tab-group>

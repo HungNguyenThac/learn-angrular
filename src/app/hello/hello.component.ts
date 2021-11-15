@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { type } from 'os';
-
+import { Component, HostBinding, Input } from '@angular/core';
+type FlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 @Component({
   selector: 'app-hello',
   template: '', // inline html,
@@ -8,7 +7,18 @@ import { type } from 'os';
   styles: [], // inline style
   styleUrls: ['./hello.component.scss'], //binding style
 })
+
 export class HelloComponent {
+
+  @Input() flexDirection: FlexDirection = 'column';
+  // @HostBinding dùng để bind giá trị lên trên selector tag, thường dùng trong style
+  @HostBinding('style.color') get color():string {
+    return 'red'
+  }
+  @HostBinding('style.flex-direction') get direction() {
+    return this.flexDirection;
+  }
+
   inputTest = 'button';
 
   inputValue = 'ngthachung';
@@ -56,8 +66,9 @@ export class HelloComponent {
   Danger = true;
   Warning = true;
 
-  @Input() background = "green";
-  @Input() colorBar = "yellow";
+  @Input() background:string = "blue";
+  @Input() colorBar:string = "yellow";
+
   @Input() set progress(val: number){
     //validate
     if(typeof val !== "number"){
@@ -74,5 +85,7 @@ export class HelloComponent {
   private _progress = 50;
   get progress(){
     return this._progress
-  }
+  };
+
+
 }
