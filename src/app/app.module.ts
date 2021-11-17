@@ -1,3 +1,4 @@
+import { RxjsFilterComponent } from './learn-rxjs/rxjs-filter.component';
 import { RxjsTransformOperator } from './learn-rxjs/rxjs-transform-operators.component';
 import { FilterUserPipe } from './filter-userList.pipe';
 import { FormartAddressPipe } from './format-address.pipe';
@@ -33,6 +34,7 @@ import { LearnRxjsComponent } from './learn-rxjs/rxjs-operators.component';
     FilterUserPipe,
     LearnRxjsComponent,
     RxjsTransformOperator,
+    RxjsFilterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
