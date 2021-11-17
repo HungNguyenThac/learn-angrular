@@ -14,7 +14,7 @@ import {
 
 @Component({
   selector: 'app-rxjs-transform-operator',
-  template: `<span #btn>click</span>`,
+  template: `<button>Click</button>`,
 
   styles: [],
 })
@@ -124,8 +124,8 @@ export class RxjsTransformOperator {
   // lưu trữ giá trị được emit ra cho đến khi thực thi buffer
   @ViewChild('btn', { read: ElementRef }) btnClick!: HTMLButtonElement;
   ngAfterViewInit(): void {}
-  click$ = fromEvent(this.btnClick, 'click');
-  source$ = interval(1000).pipe(buffer(this.click$)).subscribe(this.observer);
+  click$ = fromEvent(document, 'click');
+  source$ = interval(1000).pipe(buffer(this.click$)).subscribe();
 
   //buffer time
   click2$ = fromEvent(document, 'click');
