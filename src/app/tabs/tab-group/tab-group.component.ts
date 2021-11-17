@@ -1,5 +1,6 @@
-import { EventEmitter } from '@angular/core';
+import { ContentChildren, EventEmitter, QueryList } from '@angular/core';
 import { Component, OnInit, Input, Output } from '@angular/core';
+import { interval } from 'rxjs';
 import { TabPanelComponent } from '../tab-panel/tab-panel.component';
 @Component({
   selector: 'app-tab-group',
@@ -11,10 +12,12 @@ export class TabGroupComponent implements OnInit {
   @Input() activeIndex = 0;
 
   @Output() activeIndexChange = new EventEmitter<number>();
-
+  @ContentChildren(TabPanelComponent) tabPanels!: QueryList<TabGroupComponent>;
   addTab(tab: TabPanelComponent) {
     this.tabPanelList = [...this.tabPanelList, tab];
   }
+
+  ngAfterContentInit(): void {}
   removeTab(tab: TabPanelComponent) {
     let currentActiveIndex: number;
     this.tabPanelList = this.tabPanelList.filter((tabPanel, index) => {

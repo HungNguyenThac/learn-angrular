@@ -30,9 +30,43 @@
 <author-detail [linkTemplate]="linkTemplate"></author-detail>
 
 <app-tab-group [(activeIndex)]="currentIndex">
-  <app-tab-panel title="first">First tab content</app-tab-panel>
-  <app-tab-panel title="second">second tab content</app-tab-panel>
-  <app-tab-panel title="third">third tab content</app-tab-panel>
-  <app-tab-panel title="fourth">fourth tab content</app-tab-panel>
-  <app-tab-panel title="five">fiveth tab content</app-tab-panel>
+  <app-tab-panel title="first">
+    <ng-template tabContent>
+      First tab content
+      <app-count-component></app-count-component>
+    </ng-template>
+  </app-tab-panel>
+  <!--  -->
+  <app-tab-panel title="second">
+    <ng-template tabContent>
+      second tab content
+      <app-count-component></app-count-component>
+    </ng-template>
+  </app-tab-panel>
+  <app-tab-panel title="third">
+    <ng-template tabContent>
+      third tab content
+      <app-count-component></app-count-component>
+    </ng-template>
+  </app-tab-panel>
+  <app-tab-panel title="fourth">
+    <ng-template tabContent>
+      fourth tab content
+      <app-count-component></app-count-component>
+    </ng-template>
+  </app-tab-panel>
+  <app-tab-panel title="five">
+    <ng-template tabContent>
+      fiveth tab content
+      <app-count-component></app-count-component>
+    </ng-template>
+  </app-tab-panel>
 </app-tab-group>
+
+<p>{{ address | formartAddress }}</p>
+<ul>
+  <li *ngFor="let user of userList | filterUserList">{{ user.name }}</li>
+</ul>
+<button (click)="addUser()">Click here</button>
+<app-rxjs-transform-operator></app-rxjs-transform-operator>
+<app-learn-rxjs></app-learn-rxjs>

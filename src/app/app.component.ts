@@ -1,5 +1,3 @@
-import { HelloComponent } from './hello/hello.component';
-import { CheckedComponent } from './checked/checked.component';
 import {
   Component,
   ElementRef,
@@ -7,6 +5,10 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
+import { CheckedComponent } from './checked/checked.component';
+import { userLike } from './filter-userList.pipe';
+import { AddressLike } from './format-address.pipe';
+import { HelloComponent } from './hello/hello.component';
 
 @Component({
   selector: 'app-root',
@@ -58,6 +60,23 @@ export class AppComponent {
   //ngAfterViewInit: thực thi hàm sau khi khởi tạo view, để truy cập tới viewChild và viewChildren
   ngAfterViewInit(): void {
     this.helloComponent.changes.subscribe(console.log);
+  }
+
+  address: AddressLike = {
+    address1: 'Đình Xuyên',
+    address2: 'Gia Lâm',
+    address3: 'Hà Nội',
+    country: 'Việt Nam',
+  };
+
+  userList: userLike[] = [
+    { name: 'Hung', age: 18 },
+    { name: 'Dung', age: 20 },
+    { name: 'Manh', age: 17 },
+  ];
+
+  addUser() {
+    this.userList = [...this.userList, { name: 'Toan', age: 90 }];
   }
 }
 // data down: parent component tương tác với component child
