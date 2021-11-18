@@ -44,7 +44,7 @@ export class RxjsFilterComponent {
   };
 
   // first: frist sẽ emit ra phần tử đầu tiên và complete ngay sau đó.
-  // first sẽ trả về emptyError nếu không có phần tử nào được emit ra mà observable đã complete( empty observable,...)
+  // first sẽ trả về emptyError nếu không có phần tử nào được emit ra mà parent observable đã complete( empty observable,...)
   // first có thể nhận vào predicate
   // predicate là điều kiện. nếu không thoả mãn điều kiện mà observable đã complete thì first sẽ throw error.
   // nếu không muốn first throw error thì thêm default value ==> ko trả về throw error
@@ -58,7 +58,7 @@ export class RxjsFilterComponent {
     .subscribe();
 
   // find: frist sẽ emit ra phần tử đầu tiên thoả mãn điều kiện và complete ngay sau đó.
-  //    find: bắt buộc phải truyền vào 1 predicate, ko có default Value
+  //    find: bắt buộc phải truyền vào 1 predicate, có default Value
   //    find: có nhận vào default value
   //    không throw error nếu không có phần tử thoả mãn predicate hoặc parent observable complete( rỗng)
   find = from(this.array)
@@ -66,7 +66,7 @@ export class RxjsFilterComponent {
     .subscribe();
 
   // single: single cũng dùng để tìm phần tử thoả, tuy nhiên, single chặt chẽ hơn find.
-  // single sẽ không nhận vào default value
+  // single sẽ không có default value
   // single sẽ throw error nếu như có >= 2 phần tử thoả mãn điều kiện
   // single sẽ emit => undifined nếu không có phần tử nào thoả mãn
   // single chỉ sử dụng nếu như bạn có phần tử nào bắt buộc phải thoả mãn
@@ -139,13 +139,13 @@ export class RxjsFilterComponent {
     .subscribe();
 
   // distinctUntilChanged: distinctUntilChanged có concept tương tự như distinct
-  // nhưng sẽ chỉ so sánh với giá trị emit liền kề trước đó
+  // nhưng sẽ chỉ so sánh theo cặp với giá trị emit liền kề trước đó
   // distinctUntilChanged có thể nhận keySelector để có thể chọn được property nào cần được so sánh
   distinctUntilChanged = from(this.array)
     .pipe(distinctUntilChanged())
     .subscribe();
   distinctUntilChanged2 = from(this.users)
-    .pipe(distinctUntilChanged((a, b) => a.age === b.age))
+    .pipe(distinctUntilChanged((a, b) => a.age > b.age))
     .subscribe();
 
   // distinctUntilKeyChanged: distinctUntilKeyChanged là bản rút gọn của distinctUntilChanged ==> làm việc với object
