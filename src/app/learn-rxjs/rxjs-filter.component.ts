@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { from, fromEvent, interval } from 'rxjs';
 import {
+  auditTime,
+  debounce,
   debounceTime,
   delay,
   distinct,
@@ -74,10 +76,6 @@ export class RxjsFilterComponent {
 
   single2 = from(this.array)
     .pipe(single((x) => x % 10 === 0))
-    .subscribe();
-
-  single3 = from(this.array)
-    .pipe(single((x) => x % 2 === 0))
     .subscribe();
 
   // take: nhận vào 1 tham số "count" dùng để đặt cho số giá trị được emit từ parent Observable.
@@ -166,12 +164,16 @@ export class RxjsFilterComponent {
   throttleTime2 = fromEvent(document, 'click')
     .pipe(throttleTime(3000))
     .subscribe();
-
-  // throttle: concept nó cũng tương tụ như throttleTime, tuy nhiên thì tham số nhận vào throttle là một observable
+  // throttle: có concept cũng tương tụ như throttleTime, tuy nhiên thì tham số nhận vào throttle là một observable
   //   throttle = interval(1000).pipe(throttle()).subscribe();
 
   //debounce/debounceTime
-  debounceTime = interval(1000)
+  debounceTime = fromEvent(document, 'click')
     .pipe(debounceTime(1000))
-    .subscribe(this.observer);
+    .subscribe();
+
+  //auditTime: auditTime nhận vào tham số như là một timer, khi parent observable emit ra giá trị ==> auditTime trigger timer
+  // lúc này, auditTime sẽ bỏ qua toàn bộ những giá trị mà parent observable emit
+  // đến khi timer kết thúc, thì auditTime sẽ emit giá trị cuối cùng mà trước đó parent observable đã emit
+  auditTime = interval(1000).pipe(auditTime(2000)).subscribe();
 }
