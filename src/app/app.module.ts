@@ -1,3 +1,4 @@
+import { RxjsHandleError } from './learn-rxjs/rxjs.handle-error.component';
 import { RxjsCombination } from './learn-rxjs/rxjs-combination';
 import { RxjsFilterComponent } from './learn-rxjs/rxjs-filter.component';
 import { RxjsTransformOperator } from './learn-rxjs/rxjs-transform-operators.component';
@@ -18,6 +19,7 @@ import { TabGroupComponent } from './tabs/tab-group/tab-group.component';
 import { TabPanelComponent } from './tabs/tab-panel/tab-panel.component';
 import { CountComponnet } from './count/count.component';
 import { LearnRxjsComponent } from './learn-rxjs/rxjs-operators.component';
+import { AuthorService } from './authors.service';
 
 @NgModule({
   declarations: [
@@ -37,9 +39,10 @@ import { LearnRxjsComponent } from './learn-rxjs/rxjs-operators.component';
     RxjsTransformOperator,
     RxjsFilterComponent,
     RxjsCombination,
+    RxjsHandleError,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  providers: [AuthorService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

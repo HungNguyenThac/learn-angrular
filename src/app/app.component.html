@@ -11,8 +11,6 @@
   <br />
   sử dụng cú pháp #..... để khai báo một instance của component
   <button #btnElment>Click</button>
-  <author-list></author-list>
-
   <nav-comp [navs]="navs"></nav-comp>
   <br />
   <checked
@@ -23,7 +21,7 @@
   <button (click)="checkedComp.checked = true">True</button>
   <button (click)="checkedComp.checked = false">False</button>
 </div> -->
-<ng-template #linkTemplate let-item="number">
+<!-- <ng-template #linkTemplate let-item="number">
   <p style="margin-left: 20px">{{ item }}</p>
 </ng-template>
 
@@ -36,7 +34,6 @@
       <app-count-component></app-count-component>
     </ng-template>
   </app-tab-panel>
-  <!--  -->
   <app-tab-panel title="second">
     <ng-template tabContent>
       second tab content
@@ -67,8 +64,13 @@
 <ul>
   <li *ngFor="let user of userList | filterUserList">{{ user.name }}</li>
 </ul>
-<button (click)="addUser()">Click here</button>
+<button (click)="addUser()">Click here</button> -->
+
+<!-- <author-list></author-list> -->
 <!-- <app-rxjs-transform-operator></app-rxjs-transform-operator>
 <app-learn-rxjs></app-learn-rxjs> -->
 <!-- <app-rxjs-filter></app-rxjs-filter> -->
 <app-rxjs-combination></app-rxjs-combination>
+<app-rxjs-handle-error></app-rxjs-handle-error>
+
+

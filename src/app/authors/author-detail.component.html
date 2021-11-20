@@ -1,4 +1,4 @@
-<!-- <div
+<div
   *ngFor="
     let user of userList;
     index as idx;
@@ -14,12 +14,12 @@
     <button style="margin-left: 1rem" (click)="select.emit(user)">
       Click to select
     </button>
-    <button style="margin-left: 1rem" (click)="remove.emit(idx)">
+    <button style="margin-left: 1rem" (click)="remove.emit(user)">
       Click to remove
     </button>
   </p>
-</div> -->
-
+</div>
+<p> Current user: {{currentUser.name}}</p>
 <br />
 
 <!-- 

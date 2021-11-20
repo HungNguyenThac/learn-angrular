@@ -6,7 +6,7 @@ export interface Author {
   phone: string;
 }
 
-const authors: Author[] = [
+export const authors: Author[] = [
   {
     id: 1,
     name: 'Leanne Graham',
@@ -78,5 +78,3 @@ const authors: Author[] = [
     phone: '024-648-3804',
   },
 ];
-
-export default authors;

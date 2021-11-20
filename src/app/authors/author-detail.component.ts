@@ -1,4 +1,4 @@
-import authors, { Author } from './../authors-module';
+import { Author, authors } from './../authors-module';
 import {
   Component,
   EventEmitter,
@@ -22,7 +22,7 @@ export class AuthorDetailComponent {
   constructor() {}
   // gán một instance vào tham số trong một tham số của một biến và truyền ngược lên component cha
   @Output() select = new EventEmitter<Author>();
-  @Output() remove = new EventEmitter<number>();
+  @Output() remove = new EventEmitter<Author>();
   increment() {
     this.counter = this.counter + 1;
   }
