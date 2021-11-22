@@ -1,0 +1,111 @@
+<div class="unlock-account-wrapper">
+  <h2 class="text-primary"><b>Thông tin khách hàng</b></h2>
+  <!-- Filter form -->
+  <div class="filter-form block">
+    <div class="form horizontal">
+      <form
+        [formGroup]="rfContact"
+        name="loginForm"
+        role="form"
+        class="form form-validate"
+        (ngSubmit)="onSubmit($event)"
+      >
+        <!-- ROW -->
+        <div class="row">
+          <div class="col-6">
+            <div class="form-field">
+              <label for="">ContactName</label>
+              <input type="text" formControlName="contactName" />
+            </div>
+          </div>
+        </div>
+        <!-- ROW -->
+        <div class="row">
+          <div class="col-6">
+            <div class="form-field">
+              <label for="">username</label>
+              <input type="text" formControlName="username" />
+            </div>
+          </div>
+        </div>
+        <!-- ROW -->
+        <div class="row">
+          <div class="col-6">
+            <div class="form-field">
+              <label for="">useremail</label>
+              <input type="text" formControlName="useremail" />
+            </div>
+          </div>
+        </div>
+        <fieldset formGroupName="social">
+          <!-- ROW -->
+          <div class="row">
+            <div class="col-6">
+              <div class="form-field">
+                <label for="">facebook</label>
+                <input type="text" formControlName="facebook" />
+              </div>
+            </div>
+          </div>
+          <!-- ROW -->
+          <div class="row">
+            <div class="col-6">
+              <div class="form-field">
+                <label for="">twitter</label>
+                <input type="text" formControlName="twitter" />
+              </div>
+            </div>
+          </div>
+          <!-- ROW -->
+          <div class="row">
+            <div class="col-6">
+              <div class="form-field">
+                <label for="">website</label>
+                <input type="text" formControlName="website" />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- ROW -->
+        <fieldset formArrayName="tels">
+          <div class="row" *ngFor="let tel of tels.controls; index as idx">
+            <div class="col-6">
+              <div class="form-field">
+                <label for="">tel:</label>
+                <input
+                  type="text"
+                  formControlName="tels"
+                  [formControlName]="idx"
+                />
+                <button class="btn btn-info" (click)="addTel()">thêm</button>
+                <button
+                  class="btn btn-danger"
+                  (click)="removeTel(idx)"
+                  [disabled]="tels.controls.length < 2"
+                >
+                  xoá
+                </button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="col-8">
+          <button
+            class="btn btn-primary w-100"
+            type="submit"
+            [disabled]="rfContact.invalid"
+          >
+            {{ "login" }}
+          </button>
+        </div>
+      </form>
+      <div class="row mt-5">
+        <input
+          type="text"
+          [formControl]="searchForm"
+          class="form-control col-6"
+        />
+      </div>
+    </div>
+  </div>
+</div>

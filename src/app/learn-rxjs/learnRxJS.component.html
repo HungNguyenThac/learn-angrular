@@ -1,0 +1,14 @@
+<!-- <input type="text" [formControl]="searchInput" name="" id="" />
+<br />
+
+<ul>
+  <li *ngFor="let author of authors">
+    <p>{{ author.id }}</p>
+    <p>{{ author.name }}</p>
+    <p>{{ author.phone }}</p>
+    <p>{{ author.username }}</p>
+    <p>{{ author.email }}</p>
+  </li>
+</ul> -->
+
+<input type="text" (change)="onInput($event)" />

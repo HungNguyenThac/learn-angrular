@@ -18,11 +18,8 @@ import { HelloComponent } from './hello/hello.component';
 export class AppComponent {
   title = 'learnAngular';
   currentIndex: number = 0;
-
   currentColor = 'black';
-
   navs = ['native', 'link 1', 'link2'];
-
   currentProgress = 20;
   isChecked = false;
 

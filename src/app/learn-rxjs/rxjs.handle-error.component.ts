@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { forkJoin, from, of, throwError } from 'rxjs';
-import { catchError, map, retry, take } from 'rxjs/operators';
+import { catchError, map, retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs-handle-error',
@@ -20,8 +20,6 @@ export class RxjsHandleError {
     },
   };
 
-  //catchError
-
   cached = [5];
 
   catchError = from([1, 2, 3, 4, 5])
@@ -34,14 +32,14 @@ export class RxjsHandleError {
       }),
       catchError((err) => of(err))
     )
-    .subscribe(this.observer);
+    .subscribe();
 
   catchError2 = forkJoin([
-    of([1, 2, 3, 4, 5, 6, 67, 7]),
+    of([1, 2]),
     of('123123123'),
     throwError(new Error('401')).pipe(
-      catchError((err, caught) => of(caught)),
-      take(3)
+      catchError((err, caught) => of(err)),
+      retry(3)
     ),
   ]).subscribe();
 }
