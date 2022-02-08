@@ -1,10 +1,17 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ChildComponent } from './home/child/child.component';
+import { HomeComponent } from './home/home.component';
+import { Routes } from '@angular/router';
 
-const routes: Routes = [];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
+export const routes: Routes = [
+  // detail sẽ để trước vì angular sẽ chạy từ trên xuống dưới mà math với url trùng
+  // nếu có children thì sẽ nhúng router-outlet ở html cha
+  {
+    path: 'home',
+    component: HomeComponent,
+    children: [{ path: 'child', component: ChildComponent }],
+  },
+  {
+    path: 'detail/:slug',
+    component: ChildComponent,
+  },
+];
