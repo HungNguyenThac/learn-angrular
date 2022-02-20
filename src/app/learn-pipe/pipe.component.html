@@ -1,0 +1,41 @@
+<!-- date pipe -->
+<p>{{ date | date: "shortDate" }}</p>
+<p>{{ date | date: "mediumDate" }}</p>
+<p>{{ date | date: "fullDate" }}</p>
+
+<!-- month: uppercase-->
+<p>{{ date | date: "dd/MM/yyyy" }}</p>
+
+<!-- lowercase | uppercase-->
+<p>{{ "Nguyen Thac Hung" | uppercase }}</p>
+<p>{{ "Nguyen Thac Hung" | lowercase }}</p>
+
+<!-- currency => giá tiền -->
+<p>{{ 250 | currency }}</p>
+<P>{{ 250000 | currency: currency }}</P>
+
+<!-- number pipe -->
+<!-- number:" trước dấu phẩy mấy số.Sau dấu phẩy mấy sô" -->
+<p>{{ 2.123123 | number: "2.1-1" }}</p>
+
+<!-- percent pipe -->
+<p>{{ 0.57 | percent }}</p>
+
+<!-- JSON pipe -->
+<p>{{ user | json }}</p>
+
+<!-- async pipe -->
+<!-- async pipe sẽ tự động subscribe/unsubscribe vào observerble -->
+
+<p>{{ interval$ | async }}</p>
+
+<!-- custom Pipe -->
+<!-- sử dụng custom pipe với dữ liệu nội tại của angular  -->
+<!-- sử dụng custom pipe sẽ hạn chế số lần chạy của funcion -->
+<!-- ham transform sẽ nhận vào tham số và data sẽ là tham số đầu tiên -->
+<!-- sau đó các option sẽ là tham số thứ 2 -->
+<p>{{ address | formartAddress }}</p>
+<p>{{ address | formartAddress: "param2" }}</p>
+<ul>
+  <li *ngFor="let user of userList | filterUserList">{{ user.name }}</li>
+</ul>

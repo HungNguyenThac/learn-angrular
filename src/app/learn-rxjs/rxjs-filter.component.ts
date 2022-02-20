@@ -1,10 +1,8 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { from, fromEvent, interval } from 'rxjs';
 import {
   auditTime,
-  debounce,
   debounceTime,
-  delay,
   distinct,
   distinctUntilChanged,
   distinctUntilKeyChanged,
@@ -19,7 +17,6 @@ import {
   takeLast,
   takeUntil,
   takeWhile,
-  throttle,
   throttleTime,
 } from 'rxjs/operators';
 

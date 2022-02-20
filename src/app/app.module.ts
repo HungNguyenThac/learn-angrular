@@ -1,3 +1,4 @@
+import { PipeComponent } from './learn-pipe/pipe.component';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,11 +11,11 @@ import { AuthorListComponent } from './authors/authors-list.component';
 import { CheckedComponent } from './checked/checked.component';
 import { CountComponnet } from './count/count.component';
 import { CustomValidatorComponent } from './custom-validator/custom-validator.component';
-import { FilterUserPipe } from './filter-userList.pipe';
-import { FormartAddressPipe } from './format-address.pipe';
+import { FilterUserPipe } from './learn-pipe/filter-userList.pipe';
+import { FormartAddressPipe } from './learn-pipe/format-address.pipe';
 import { HelloComponent } from './hello/hello.component';
-import { ChildComponent } from './home/child/child.component';
-import { HomeComponent } from './home/home.component';
+import { ChildComponent } from './home - learn router/child/child.component';
+import { HomeComponent } from './home - learn router/home.component';
 import { LearnFormComponent } from './learn-form/learn-form.component';
 import { RxjsCombination } from './learn-rxjs/rxjs-combination';
 import { RxjsFilterComponent } from './learn-rxjs/rxjs-filter.component';
@@ -53,6 +54,7 @@ import { TabPanelComponent } from './tabs/tab-panel/tab-panel.component';
     RxjsSubjectComponent,
     HomeComponent,
     ChildComponent,
+    PipeComponent,
   ],
   imports: [
     BrowserModule,

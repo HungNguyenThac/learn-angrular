@@ -6,8 +6,8 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { CheckedComponent } from './checked/checked.component';
-import { userLike } from './filter-userList.pipe';
-import { AddressLike } from './format-address.pipe';
+import { userLike } from './learn-pipe/filter-userList.pipe';
+import { AddressLike } from './learn-pipe/format-address.pipe';
 import { HelloComponent } from './hello/hello.component';
 
 @Component({

@@ -1,5 +1,5 @@
-import { ChildComponent } from './home/child/child.component';
-import { HomeComponent } from './home/home.component';
+import { ChildComponent } from './home - learn router/child/child.component';
+import { HomeComponent } from './home - learn router/home.component';
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
