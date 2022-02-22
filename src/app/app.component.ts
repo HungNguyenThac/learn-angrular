@@ -5,7 +5,7 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { CheckedComponent } from './checked/checked.component';
+import { CheckedComponent } from './checked - custom eventEmitter/checked.component';
 import { userLike } from './learn-pipe/filter-userList.pipe';
 import { AddressLike } from './learn-pipe/format-address.pipe';
 import { HelloComponent } from './hello/hello.component';

@@ -1,4 +1,4 @@
-import { Author, authors } from './../authors-module';
+import { Author, authors } from '../authors-module';
 import {
   Component,
   EventEmitter,
