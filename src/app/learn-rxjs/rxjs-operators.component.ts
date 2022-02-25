@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  Observable,
-  of,
+  defer,
   from,
   fromEvent,
   fromEventPattern,
   interval,
-  timer,
+  of,
   throwError,
-  defer,
+  timer,
 } from 'rxjs';
 
 @Component({

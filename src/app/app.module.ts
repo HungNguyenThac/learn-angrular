@@ -1,22 +1,22 @@
-import { PipeComponent } from './learn-pipe/pipe.component';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthorService } from './authors.service';
 import { AuthorDetailComponent } from './authors - custom eventEmitter/author-detail.component';
 import { AuthorListComponent } from './authors - custom eventEmitter/authors-list.component';
+import { AuthorService } from './authors.service';
 import { CheckedComponent } from './checked - custom eventEmitter/checked.component';
 import { CountComponnet } from './count/count.component';
 import { CustomValidatorComponent } from './custom-validator/custom-validator.component';
-import { FilterUserPipe } from './learn-pipe/filter-userList.pipe';
-import { FormartAddressPipe } from './learn-pipe/format-address.pipe';
 import { HelloComponent } from './hello/hello.component';
-import { ChildComponent } from './home - learn router/child/child.component';
+import { ArticlesModule } from './home - learn router/articles/articles.module';
 import { HomeComponent } from './home - learn router/home.component';
 import { LearnFormComponent } from './learn-form/learn-form.component';
+import { FilterUserPipe } from './learn-pipe/filter-userList.pipe';
+import { FormartAddressPipe } from './learn-pipe/format-address.pipe';
+import { PipeComponent } from './learn-pipe/pipe.component';
 import { RxjsCombination } from './learn-rxjs/rxjs-combination';
 import { RxjsFilterComponent } from './learn-rxjs/rxjs-filter.component';
 import { RxjsHOOsComponent } from './learn-rxjs/rxjs-HOOs.component';
@@ -53,10 +53,10 @@ import { TabPanelComponent } from './tabs/tab-panel/tab-panel.component';
     CustomValidatorComponent,
     RxjsSubjectComponent,
     HomeComponent,
-    ChildComponent,
     PipeComponent,
   ],
   imports: [
+    ArticlesModule,
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),

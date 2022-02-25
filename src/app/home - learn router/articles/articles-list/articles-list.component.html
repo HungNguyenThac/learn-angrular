@@ -1,0 +1,17 @@
+<div>
+  <ul>
+    <li
+      *ngFor="let i of artitle$ | async"
+      style="border: 1px solid black; padding: 20px; margin-top: 20px"
+      (click)="backToArticlesList(i.slug)"
+    >
+      {{ i.title }}
+      <br />
+      {{ i.body }}
+      <br />
+      <p>Read more</p>
+    </li>
+  </ul>
+
+  <button (click)="backToHome()">Back to home</button>
+</div>

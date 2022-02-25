@@ -1,0 +1,8 @@
+<ng-container *ngIf="article">
+  <h1>{{ article.title }}</h1>
+  <h4>{{ article.body }}</h4>
+  <a [routerLink]="['/detail', article.slug]"></a>
+</ng-container>
+
+<a routerLink="/articles">Back to Articles List</a>
+<!-- router link sẽ là drective là 1 array với các index tương ứng với path url -->

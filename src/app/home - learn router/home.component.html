@@ -1,15 +1,1 @@
-<div>
-  <ul>
-    <li
-      *ngFor="let i of artitle$ | async"
-      style="border: 1px solid black; padding: 20px; margin-top: 20px"
-    >
-      {{ i.title }}
-      <br />
-      {{ i.body }}
-      <br />
-      <a (click)="switchUrl(i.slug)">Read more</a>
-    </li>
-  </ul>
-</div>
-<router-outlet></router-outlet>
+<a [routerLink]="['/articles']">Switch Articles List</a>
