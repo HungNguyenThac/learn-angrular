@@ -60,12 +60,14 @@
     </ng-template>
   </app-tab-panel>
 </app-tab-group>
-
 <p>{{ address | formartAddress }}</p>
+-->
 <ul>
-  <li *ngFor="let user of userList | filterUserList">{{ user.name }}</li>
+  <li *ngFor="let user of userList | filterUserList; trackBy: trackById">
+    {{ user.name }}
+  </li>
 </ul>
-<button (click)="addUser()">Click here</button> -->
+<button (click)="addUser()">Click here</button>
 
 <!-- <author-list></author-list> -->
 

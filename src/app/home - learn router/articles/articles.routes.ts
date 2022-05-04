@@ -1,14 +1,14 @@
-import { Routes } from '@angular/router';
-import { ArticlesListComponent } from './articles-list/articles-list.component';
-import { ArticleDetailComponent } from './child/articlesDetail.component';
+import { Routes } from "@angular/router"
+import { ArticlesListComponent } from "./articles-list/articles-list.component"
+import { ArticleDetailComponent } from "./child/articlesDetail.component"
 export const articlesRoutes: Routes = [
   {},
   {
-    path: '',
+    path: "",
     component: ArticlesListComponent,
   },
   {
-    path: ':slug',
+    path: ":slug",
     component: ArticleDetailComponent,
   },
-];
+]

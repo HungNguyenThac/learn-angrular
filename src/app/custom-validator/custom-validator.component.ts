@@ -1,25 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ValidatorService } from './validator.service';
+import { Component, OnInit } from "@angular/core"
+import { FormBuilder, FormGroup, Validators } from "@angular/forms"
+import { ValidatorService } from "./validator.service"
 
 @Component({
-  selector: 'app-custom-validator',
-  templateUrl: './custom-validator.component.html',
-  styleUrls: ['./custom-validator.component.scss'],
+  selector: "app-custom-validator",
+  templateUrl: "./custom-validator.component.html",
+  styleUrls: ["./custom-validator.component.scss"],
 })
 export class CustomValidatorComponent implements OnInit {
-  formRegister!: FormGroup;
+  formRegister!: FormGroup
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.formRegister = this.formBuilder.group({
       // formControl: [giá trị, syncValidators, asyncValidators]
-      userName: ['', [ValidatorService.checkedInputString], []],
+      userName: ["", [ValidatorService.checkedInputString], []],
       pw: this.formBuilder.group(
         {
-          password: ['', [ValidatorService.checkedInputString]],
-          confirmPassword: [''],
+          password: ["", [ValidatorService.checkedInputString]],
+          confirmPassword: [""],
         },
         {
           // syncValidators ==> đồng bộ
@@ -28,11 +28,17 @@ export class CustomValidatorComponent implements OnInit {
           asyncValidators: [],
         }
       ),
-    });
+    })
+    this.formRegister.patchValue(
+      {
+        userName: "nguyen thac hung",
+      },
+      {}
+    )
   }
 
   onSubmit(event: any) {
-    event.preventDefault();
-    console.log(this.formRegister);
+    event.preventDefault()
+    console.log(this.formRegister)
   }
 }

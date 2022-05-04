@@ -1,13 +1,13 @@
-import { Routes } from '@angular/router';
-import { HomeComponent } from './home - learn router/home.component';
+import { Routes } from "@angular/router"
+import { HomeComponent } from "./home - learn router/home.component"
 
 export const routes: Routes = [
   // detail sẽ để trước vì angular sẽ chạy từ trên xuống dưới mà math với url trùng
   // nếu có children thì sẽ nhúng router-outlet ở html cha
   {
-    path: '',
+    path: "",
     component: HomeComponent,
-    // children: [{ path: 'child', component: ChildComponent }],
+    // children: [{ path: "child", component: ChildComponent }],
   },
   // {
   //   path: 'articles',
@@ -16,7 +16,7 @@ export const routes: Routes = [
   //       (m) => m.ArticlesModule
   //     ),
   // },
-];
+]
 
 // routes bằng [routerLink]
 // <a [routerLink]="['/detail', article$.slug]"></a>
@@ -24,7 +24,8 @@ export const routes: Routes = [
 
 // routes bằng Router
 // constructor(private router: Router) {}
-//  switchUrl(slug: any) {this.router.navigate(['/detail', slug]);}
+//  switchUrl(slug: any)
+//  {this.router.navigate(['/detail', slug]);}
 
 // lazyload module:
 // bước 1: ở routes module con, chỉ để lại các routes children con.

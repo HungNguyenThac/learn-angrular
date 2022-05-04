@@ -1,43 +1,43 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { debounceTime, startWith, switchMap, tap } from 'rxjs/operators';
-import { Author } from '../authors-module';
-import { FilterUserService } from './service/filter-user.service';
+import { Component, OnInit } from "@angular/core"
+import { FormControl } from "@angular/forms"
+import { debounceTime, startWith, switchMap, tap } from "rxjs/operators"
+import { Author } from "../authors-module"
+import { FilterUserService } from "./service/filter-user.service"
 
 @Component({
-  selector: 'app-rxjs-HOOs',
-  template: '',
+  selector: "app-rxjs-HOOs",
+  template: "",
   styles: [],
 })
 export class RxjsHOOsComponent implements OnInit {
   constructor(public userFilter: FilterUserService) {}
-  searchInput = new FormControl();
-  loading: boolean = false;
+  searchInput = new FormControl()
+  loading: boolean = false
 
-  defaultValue: string = '';
-  authors!: Author[];
+  defaultValue: string = ""
+  authors!: Author[]
 
-  name: string = '';
+  name: string = ""
 
   ngOnInit(): void {
     this.searchInput.valueChanges
       .pipe(
         debounceTime(200),
         tap(() => {
-          this.loading = true;
+          this.loading = true
         }),
-        startWith(''),
+        startWith(""),
         switchMap((query) =>
           this.userFilter.filterUser(query).pipe(
             tap(() => {
-              this.loading = false;
+              this.loading = false
             })
           )
         )
       )
       .subscribe((authors) => {
-        this.authors = authors;
-      });
+        this.authors = authors
+      })
   }
 
   ngAfterViewInit(): void {}
